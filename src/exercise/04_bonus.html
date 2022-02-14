@@ -12,12 +12,18 @@
       return <h1 className='message' {...props} />
     }
 
+    function MessageWithJSX(props){
+      return <h2 {...props} />
+    }
+
     // 🐨 use that function in place of the divs below with:
     // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
     const element = (
       <div className="container">
         {message({children: 'Hello World 2'})}
         {message({children: 'Good bye World 2'})}
+        {React.createElement(message, null, 'Third child here!')}
+        <MessageWithJSX>Forth child</MessageWithJSX>
       </div>
     )
 
