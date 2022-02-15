@@ -18,11 +18,19 @@ import '../box-styles.css'
 
 function Box({size, style, children}) {
   const classes = `box box--${size}`
-  const styles = {...style, fontStyle: 'italic'}
+  const styles = {fontStyle: 'italic', ...style }
   return (
     <div className={classes} style={styles}>
       {children}
     </div>
+  )
+}
+
+function Box2({size, style, ...otherProps}) {
+  const classes = `box box--${size}`
+  const styles = {fontStyle: 'italic', ...style }
+  return (
+    <div className={classes} style={styles} {...otherProps}/>
   )
 }
 
@@ -42,6 +50,9 @@ function App() {
       <Box size="large" style={{backgroundColor: 'orange'}}>
         large orange box
       </Box>
+      <Box2 id="helloIdProp" size="large" style={{backgroundColor: 'red'}}>
+        large orange box
+      </Box2>
     </div>
   )
 }
